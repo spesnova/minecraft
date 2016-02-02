@@ -1,5 +1,7 @@
 # Minecraft Server
-This is a Docker Compose application for Minecraft Server. This app has backup and restore mechanism. Also if you use Slack, you can notify user events to Slack (ex. who is joined, left, dead, archived...)
+This is a Docker Compose application for Minecraft Server.
+
+This app has backup and restore mechanism. Also if you are using Slack, you can notify user events to Slack (ex. who is joined, left, dead, archived...)
 
 ## SUPPORTED TAGS
 
@@ -7,8 +9,8 @@ This is a Docker Compose application for Minecraft Server. This app has backup a
  - Minecraft Server 1.8.7
 
 ## HOW TO USE
-### Start the server
-To start Minecraft Server, just start server service.
+### Start a Minecraft Server
+To start a Minecraft Server, just start server service.
 
 ```
 $ compose up -d server
