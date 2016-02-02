@@ -1,4 +1,4 @@
-# Minecraft Notify
+# Minecraft Notify [![Docker Repository on Quay](https://quay.io/repository/spesnova/minecraft-notify/status "Docker Repository on Quay")](https://quay.io/repository/spesnova/minecraft-notify)
 A service(container) to notify Minecraft user events to Slack.
 
 ![screenshot](screenshot.png)
