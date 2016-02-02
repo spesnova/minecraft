@@ -99,10 +99,10 @@ SLACK_USERNAME=Minecraft Server
 SLACK_ICON_EMOJI=minecraft
 ```
 
-Then start fluentd service.
+Then start notify service.
 
 ```
-$ compose up -d fluentd
+$ compose up -d notify
 ```
 
-fluentd service gets Minecraft Server's log and extracts user events and posts it to Slack.
+notify service gets Minecraft Server's log and extracts user events and posts it to Slack.

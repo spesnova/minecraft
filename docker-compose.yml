@@ -10,8 +10,8 @@ server:
   volumes_from:
     - restore
   log_driver: "fluentd"
-fluentd:
-  build: fluentd
+notify:
+  build: notify
   dockerfile: Dockerfile
   ports:
     - 24224:24224
