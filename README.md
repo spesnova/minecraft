@@ -84,8 +84,6 @@ minecraft_restore_1 exited with code 0
 $ compose up -d server
 ```
 
-
-
 ### Notify user events to Slack
 First, get your incoming webhook URL.
 See: https://api.slack.com/incoming-webhooks
