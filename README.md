@@ -75,6 +75,10 @@ Start or Restart server service after restore service finished restoring operati
 
 ```
 $ compose up restore
+...
+...
+minecraft_restore_1 exited with code 0
+
 $ compose up -d server
 ```
 
