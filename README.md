@@ -1,4 +1,4 @@
-# Minecraft Server
+# Minecraft Server [![Docker Repository on Quay](https://quay.io/repository/spesnova/minecraft/status "Docker Repository on Quay")](https://quay.io/repository/spesnova/minecraft)
 This is a Docker Compose application for Minecraft Server.
 
 This app has backup and restore mechanism. Also if you are using Slack, you can notify user events to Slack (ex. who is joined, left, dead, archived...)
