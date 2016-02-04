@@ -25,4 +25,4 @@ RUN wget -q https://getspigot.org/spigot18/spigot_server.jar
 EXPOSE 25565
 
 # Start Minecraft server
-CMD java $JAVA_OPTS -jar /data/spigot_server.jar
+CMD java ${JAVA_OPTS} -jar /data/spigot_server.jar
