@@ -16,7 +16,15 @@ VOLUME /data/world_the_end
 WORKDIR /data
 
 # Download Spigot Minecraft Server components
-RUN wget -q https://getspigot.org/spigot18/spigot_server.jar
+#
+# About Spigot
+#   - https://www.spigotmc.org/
+#
+# About installed plugins:
+#   - AutoSaveWorld: http://dev.bukkit.org/bukkit-plugins/autosaveworld/
+RUN wget -q https://getspigot.org/spigot18/spigot_server.jar \
+  && cd plugins \
+  && wget -q http://dev.bukkit.org/media/files/859/923/AutoSaveWorld.jar
 
 # Expose the container's network port: 25565 during runtime.
 EXPOSE 25565
