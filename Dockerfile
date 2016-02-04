@@ -1,6 +1,3 @@
-# Use the offical Debian Docker image with a specified version tag, Wheezy,
-# so not all versions of Debian images are downloaded.
-#FROM debian:wheezy
 FROM ubuntu:trusty
 
 MAINTAINER Seigo Uchida <spesnova@qiita.com>
@@ -25,4 +22,4 @@ RUN wget -q https://getspigot.org/spigot18/spigot_server.jar
 EXPOSE 25565
 
 # Start Minecraft server
-CMD java ${JAVA_OPTS} -jar /data/spigot_server.jar
+CMD java `echo $JVM_OPTS` -jar /data/spigot_server.jar
