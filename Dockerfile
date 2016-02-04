@@ -15,12 +15,12 @@ VOLUME /data/world_the_end
 
 WORKDIR /data
 
-# Download Spigot Minecraft Server components
+# Download Spigot Minecraft Server components and some plugins
 #
 # About Spigot
 #   - https://www.spigotmc.org/
 #
-# About installed plugins:
+# About plugins to install:
 #   - AutoSaveWorld: http://dev.bukkit.org/bukkit-plugins/autosaveworld/
 RUN wget -q https://getspigot.org/spigot18/spigot_server.jar \
   && cd plugins \
