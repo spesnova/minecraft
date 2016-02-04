@@ -9,6 +9,7 @@ server:
     - /data/world_the_end
   volumes_from:
     - restore
+  env_file: .env
   log_driver: "fluentd"
 notify:
   image: quay.io/spesnova/minecraft-notify:latest
