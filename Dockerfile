@@ -24,4 +24,4 @@ VOLUME /data/world
 EXPOSE 25565
 
 # Start Minecraft server
-CMD java -jar /minecraft_server.1.8.7.jar
+CMD java $JVM_OPTS -jar /minecraft_server.1.8.7.jar
