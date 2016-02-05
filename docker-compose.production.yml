@@ -10,6 +10,7 @@ server:
     - /data/world_nether
     - /data/world_the_end
   env_file: .env
+  log_driver: "fluentd"
   restart: on-failure[5]
 
 worlds:
@@ -35,3 +36,10 @@ restore:
   env_file: .env
   environment:
     - RESTORE=true
+
+notify:
+  image: quay.io/spesnova/minecraft-notify:latest
+  dockerfile: Dockerfile
+  ports:
+    - 24224:24224
+  env_file: .env
