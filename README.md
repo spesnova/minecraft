@@ -6,7 +6,10 @@ This app has backup and restore mechanism. Also if you are using Slack, you can 
 ## SUPPORTED TAGS
 
 - `latest`
- - Minecraft Server 1.8.7
+ - Minecraft Server: Spigot 1.8
+ - Plugin: AutosaveWorld 4.14.2
+ - Plugin: JoinAndLeaveMessages 1.2
+ - Plugin: Dynmap v2.2
 
 ## HOW TO USE
 ### Start a Minecraft Server
@@ -16,16 +19,34 @@ To start a Minecraft Server, just start server service.
 $ compose up -d server
 ```
 
-If you want to configure server setting, modify config files under `config` dir and rebuild the docker image.
+If you want to configure server setting, modify config files under `data` dir and rebuild the docker image.
 
-```
-$ ls config
-banned-ips.json
-banned-players.json
-eula.txt
-ops.json
-server.properties
-whitelist.json
+```bash
+$ tree data
+data
+├── banned-ips.json
+├── banned-players.json
+├── bukkit.yml
+├── commands.yml
+├── config
+├── eula.txt
+├── help.yml
+├── logs
+├── mods
+├── ops.json
+├── permissions.yml
+├── plugins
+│   ├── AutoSaveWorld
+│   │   ├── config.yml
+│   │   └── configmsg.yml
+│   ├── JoinAndLeaveMessages
+│   │   └── config.yml
+│   └── dynmap
+├── server.properties
+├── spigot.yml
+└── whitelist.json
+
+7 directories, 14 files
 ```
 
 ```bash
@@ -51,7 +72,10 @@ Also, you can configure which bucket to save it and when backup should starts.
 
 ```
 # .env
+BACKUP_NAME=worlds
+MAX_NUMBER_OF_BACKUPS=10
 S3_BUCKET_NAME=my-minecraft-backup
+PATHS_TO_BACKUP=/data/world /data/world_nether /data/world_the_end /data/plugins/dynmap/web/tiles/world
 CRON_TIME=3 0-23/3 * * *
 ```
 

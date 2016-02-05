@@ -1,0 +1,31 @@
+# Plugin Join&Leave Messages by ThePoshoGamer
+# -------------------------------------------
+# Added symbol variables
+# <1> is a square symbol
+# <2> is a ray symbol
+# <3> is a interrogation right symbol
+# <4> is a sound symbol
+# <5> is a hearth
+# <6> is a interrogation left symbol
+# -------------------------------------------
+# Configuration:
+# -------------------------------------------
+SimpleJoinAndLeaveMessages:
+  JoinMessage: '%player% joined the game'
+  LeaveMessage: '%player% left the game'
+  JoinSound: CLICK
+  LeaveSound: CLICK
+Titles:
+  JoinTitle:
+    fadeintseconds: 2
+    stayseconds: 2
+    fadeoutseconds: 2
+    title: '&7Welcome to &c<5>&7Increments&c<5>!'
+    subtitle: '&b%player%'
+BroadCasterOnJoin:
+  enabled: false
+  msg:
+  - '&7==========[&bServerName Network&7]=========='
+  - '&c<5> &7Welcome back &b%player%&7, to the server'
+  - '&c<5> &7Actually there are &a%online%&7/&a20 &7players'
+  - '&c<5> &7New minigame &8<1> &e MGM Name &8<1>'

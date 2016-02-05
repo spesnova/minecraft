@@ -1,0 +1,126 @@
+var:
+  debug: false
+  commandsonlyfromconsole: false
+save:
+  enabled: true
+  disablestructuresaving: false
+  forceregioncachedump: true
+  interval: 900
+  broadcast: true
+  onplugindisable: true
+backup:
+  enabled: false
+  interval: 21600
+  savebefore: true
+  broadcast: true
+  rateLimit: -1
+  localfs:
+    enabled: true
+    destinationfolders:
+    - /data/.
+    zip: false
+    worlds:
+    - '*'
+    MaxNumberOfWorldsBackups: 15
+    pluginsfolder: false
+    MaxNumberOfPluginsBackups: 15
+    otherfolders: []
+    MaxNumberOfOtherFoldersBackups: 15
+    excludefolders: []
+  ftp:
+    enabled: false
+    sftp: false
+    hostname: 127.0.0.1
+    port: 21
+    login: user
+    password: password
+    path: asw
+    zip: false
+    worlds:
+    - '*'
+    pluginsfolder: false
+    otherfolders: []
+    excludefolders: []
+    maxNumberOfBackups: 4
+  script:
+    enabled: false
+    scriptpaths: []
+  dropbox:
+    enabled: false
+    token: ''
+    path: asw
+    worlds:
+    - '*'
+    pluginsfolder: false
+    otherfolders: []
+    excludefolders: []
+    maxNumberOfBackups: 4
+    zip: false
+purge:
+  enabled: false
+  interval: 86400
+  awaytime: 2592000
+  ignorednicks: []
+  ignoreduuids: []
+  broadcast: true
+  wg:
+    enabled: true
+    regenpurgedregion: false
+    noregenoverlapregion: true
+  lwc:
+    enabled: true
+    deletepurgedblocks: false
+  residence:
+    enabled: true
+    regenpurgedresidence: false
+  permissions:
+    enabled: true
+    savecmd: mansave
+  mywarp:
+    enabled: true
+  dat:
+    enabled: true
+crashrestart:
+  enabled: false
+  startdelay: 20
+  scriptpath: ''
+  timeout: 60
+  juststop: false
+autorestart:
+  enabled: false
+  broadcast: true
+  time: []
+  countdown:
+    enabled: true
+    broadcastonsecond:
+    - 60
+    - 30
+    - 10
+    - 9
+    - 8
+    - 7
+    - 6
+    - 5
+    - 4
+    - 3
+    - 2
+    - 1
+  commands: []
+  scriptpath: ''
+  juststop: false
+consolecommand:
+  timemode:
+    enabled: false
+    times: {}
+  intervalmode:
+    enabled: false
+    intervals: {}
+worldregen:
+  newseed: false
+  savewg: true
+  savefactions: true
+  savegp: true
+  savetowny: true
+  savepstones: true
+networkwatcher:
+  warnmainthreadnetwrokaccess: true
