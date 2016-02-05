@@ -22,9 +22,11 @@ WORKDIR /data
 #
 # About plugins to install:
 #   - AutoSaveWorld: http://dev.bukkit.org/bukkit-plugins/autosaveworld/
+#   - JoinAndLeaveMessages: https://www.spigotmc.org/resources/join-leave-join-titles-and-configurable-messages.4555/
 RUN wget -q https://getspigot.org/spigot18/spigot_server.jar \
   && cd plugins \
-  && wget -q http://dev.bukkit.org/media/files/859/923/AutoSaveWorld.jar
+  && wget -q http://dev.bukkit.org/media/files/859/923/AutoSaveWorld.jar \
+  && wget -q https://www.spigotmc.org/resources/join-leave-join-titles-and-configurable-messages.4555/download?version=49393 -O JoinAndLeaveMessages.jar
 
 # Expose the container's network port: 25565 during runtime.
 EXPOSE 25565
