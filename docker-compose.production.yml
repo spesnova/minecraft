@@ -42,7 +42,6 @@ restore:
 
 notify:
   image: quay.io/spesnova/minecraft-notify:latest
-  dockerfile: Dockerfile
   ports:
     - 24224:24224
   env_file: .env
