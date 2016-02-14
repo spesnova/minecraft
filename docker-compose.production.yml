@@ -45,3 +45,12 @@ notify:
   ports:
     - 24224:24224
   env_file: .env
+
+monitor:
+  image: datadog/docker-dd-agent:latest
+  volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+    - /proc/:/host/proc/:ro
+    - /sys/fs/cgroup/:/host/sys/fs/cgroup:ro
+  env_file: .env
+  hostname: minecraft-server
