@@ -6,10 +6,13 @@ volumes:
   dynmap:
 services:
   server:
-    image: quay.io/spesnova/minecraft:latest
+    build: .
     ports:
-      - 27364:25565
-      - 9321:8123
+      - 25565:25565
+      - 8123:8123
+    stop_signal: SIGINT
+    depends_on:
+      - notify
     volumes:
       - world:/data/world
       - world_nether:/data/world_nether
@@ -21,7 +24,7 @@ services:
     restart: on-failure[5]
 
   backup:
-    image: quay.io/spesnova/dockup
+    image: quay.io/spesnova/dockup:latest
     volumes:
       - world:/data/world:ro
       - world_nether:/data/world_nether:ro
@@ -43,16 +46,9 @@ services:
       - RESTORE=true
 
   notify:
-    image: quay.io/spesnova/minecraft-notify:latest
+    build:
+      context: ./notify
+      dockerfile: Dockerfile
     ports:
       - 24224:24224
     env_file: .env
-
-  monitor:
-    image: datadog/docker-dd-agent:latest
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - /proc/:/host/proc/:ro
-      - /sys/fs/cgroup/:/host/sys/fs/cgroup:ro
-    env_file: .env
-    hostname: minecraft-server
