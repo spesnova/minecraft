@@ -21,26 +21,23 @@ services:
     restart: on-failure[5]
 
   backup:
-    image: quay.io/spesnova/dockup
+    image: quay.io/spesnova/dockup:latest
     volumes:
       - world:/data/world:ro
       - world_nether:/data/world_nether:ro
       - world_the_ends:/data/world_the_end:ro
       - dynmap:/data/plugins/dynmap/web/tiles/world:ro
     env_file: .env
-    environment:
-      - RESTORE=false
 
   restore:
     image: quay.io/spesnova/dockup:latest
+    command: restore
     volumes:
       - world:/data/world
       - world_nether:/data/world_nether
       - world_the_ends:/data/world_the_end
       - dynmap:/data/plugins/dynmap/web/tiles/world
     env_file: .env
-    environment:
-      - RESTORE=true
 
   notify:
     image: quay.io/spesnova/minecraft-notify:latest
