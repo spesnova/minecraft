@@ -7,10 +7,10 @@ volumes:
 services:
   server:
     build: .
+    stop_signal: SIGTERM
     ports:
       - 25565:25565
       - 8123:8123
-    stop_signal: SIGINT
     depends_on:
       - notify
     volumes:
@@ -25,6 +25,7 @@ services:
 
   backup:
     image: quay.io/spesnova/dockup:latest
+    stop_signal: SIGTERM
     volumes:
       - world:/data/world:ro
       - world_nether:/data/world_nether:ro
@@ -46,6 +47,7 @@ services:
     build:
       context: ./notify
       dockerfile: Dockerfile
+    stop_signal: SIGTERM
     ports:
       - 24224:24224
     env_file: .env

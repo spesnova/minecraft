@@ -7,6 +7,7 @@ volumes:
 services:
   server:
     image: quay.io/spesnova/minecraft:latest
+    stop_signal: SIGTERM
     ports:
       - 27364:25565
       - 9321:8123
@@ -22,6 +23,7 @@ services:
 
   backup:
     image: quay.io/spesnova/dockup:latest
+    stop_signal: SIGTERM
     volumes:
       - world:/data/world:ro
       - world_nether:/data/world_nether:ro
@@ -41,12 +43,14 @@ services:
 
   notify:
     image: quay.io/spesnova/minecraft-notify:latest
+    stop_signal: SIGTERM
     ports:
       - 24224:24224
     env_file: .env
 
   monitor:
     image: datadog/docker-dd-agent:latest
+    stop_signal: SIGTERM
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /proc/:/host/proc/:ro
