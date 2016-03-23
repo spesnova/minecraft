@@ -6,13 +6,11 @@ volumes:
   dynmap:
 services:
   server:
-    build: .
+    image: quay.io/spesnova/minecraft:latest
     stop_signal: SIGTERM
     ports:
-      - 25565:25565
-      - 8123:8123
-    depends_on:
-      - notify
+      - 27364:25565
+      - 9321:8123
     volumes:
       - world:/data/world
       - world_nether:/data/world_nether
@@ -44,10 +42,18 @@ services:
     env_file: .env
 
   notify:
-    build:
-      context: ./notify
-      dockerfile: Dockerfile
+    image: quay.io/spesnova/minecraft-notify:latest
     stop_signal: SIGTERM
     ports:
       - 24224:24224
     env_file: .env
+
+  monitor:
+    image: datadog/docker-dd-agent:latest
+    stop_signal: SIGTERM
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /proc/:/host/proc/:ro
+      - /sys/fs/cgroup/:/host/sys/fs/cgroup:ro
+    env_file: .env
+    hostname: minecraft-server
