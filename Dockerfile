@@ -24,11 +24,17 @@ WORKDIR /data
 #   - AutoSaveWorld: http://dev.bukkit.org/bukkit-plugins/autosaveworld/
 #   - JoinAndLeaveMessages: https://www.spigotmc.org/resources/join-leave-join-titles-and-configurable-messages.4555/
 #   - DynMap: https://www.spigotmc.org/resources/dynmap.274/
-RUN wget -q https://getspigot.org/spigot18/spigot_server.jar \
-  && cd plugins \
-  && wget -q http://dev.bukkit.org/media/files/859/923/AutoSaveWorld.jar \
-  && wget -q https://www.spigotmc.org/resources/join-leave-join-titles-and-configurable-messages.4555/download?version=49393 -O JoinAndLeaveMessages.jar \
-  && wget -q https://www.spigotmc.org/resources/dynmap.274/download?version=66362 -O dynmap.jar
+RUN wget -q https://getspigot.org/spigot19/spigot_server.jar \
+      -O /data/spigot_server.jar \
+    && wget -q http://dev.bukkit.org/media/files/859/923/AutoSaveWorld.jar \
+      -O /data/plugins/AutoSaveWorld.jar \
+    && wget -q http://dynmap.us/builds/dynmap/dynmap-2.3-SNAPSHOT.jar \
+      -O /data/plugins/dynmap.jar
+# Add downloaded file
+# I can only access spigotmc.org with a normal browser,
+# because spigotmc.org is protected by CloudfFlare's DDos protecection.
+# Also JoinAndLeaveMessages doesn't support spigot 1.9.
+#ADD JoinAndLeaveMessages.jar /data/plugins/JoinAndLeaveMessages.jar
 
 # Expose the container's network port: 25565 during runtime.
 EXPOSE 25565
